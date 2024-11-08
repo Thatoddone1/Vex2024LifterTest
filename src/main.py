@@ -9,7 +9,7 @@ controller=Controller()
 
 motor = Motor(Ports.PORT5)
 
-
+motor.set_stopping(BrakeType.HOLD)
 
 
 def on_up_button_pressed():
