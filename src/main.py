@@ -23,7 +23,17 @@ def on_down_button_pressed():
 def on_button_released():
     lift.stop()
 
+# motors and drive train setup
+left_motor_a = Motor(Ports.PORT1, GearSetting.RATIO_18_1, False)
+left_motor_b = Motor(Ports.PORT2, GearSetting.RATIO_18_1, False)
+left_drive_smart = MotorGroup(left_motor_a, left_motor_b)
+right_motor_a = Motor(Ports.PORT3, GearSetting.RATIO_18_1, True)
+right_motor_b = Motor(Ports.PORT4, GearSetting.RATIO_18_1, True)
+right_drive_smart = MotorGroup(right_motor_a, right_motor_b)
+drivetrain = DriveTrain(left_drive_smart, right_drive_smart, 319.19, 355.59999999999997, 266.7, MM, 1)
 
+
+# controller event handlers
 controller.buttonR1.pressed(on_up_button_pressed)
 controller.buttonR1.released(on_button_released)
 controller.buttonR2.pressed(on_down_button_pressed)
@@ -45,8 +55,8 @@ def rc_auto_loop_function_controller_1():
             # calculate the drivetrain motor velocities from the controller joystick axies
             # left = axis3 + axis1
             # right = axis3 - axis1
-            drivetrain_left_side_speed = controller_1.axis3.position()
-            drivetrain_right_side_speed = controller_1.axis2.position()
+            drivetrain_left_side_speed = controller.axis3.position()
+            drivetrain_right_side_speed = controller.axis2.position()
             
             # check if the value is inside of the deadband range
             if drivetrain_left_side_speed < 5 and drivetrain_left_side_speed > -5:
