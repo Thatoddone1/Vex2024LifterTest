@@ -1,1 +1,2 @@
-.vscode/settings.json
+.vscode/*
+!.vscode/vex_project_settings.json
