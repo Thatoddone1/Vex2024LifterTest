@@ -1,7 +1,7 @@
 
 from vex import *
 from drive import rc_auto_loop_function_controller_1
-from autonomous import autonomous_loop_function_controler_1
+
 
 brain=Brain()
 
@@ -13,6 +13,5 @@ controller=Controller(PRIMARY)
 remote_control_code_enabled = True
 
 rc_auto_loop_thread_controller_1 = Thread(rc_auto_loop_function_controller_1)
-autonomous_loop_thread_controler_1 = Thread(rc_auto_loop_function_controller_1)
 
         
