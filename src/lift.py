@@ -8,9 +8,11 @@ lift.set_stopping(BrakeType.HOLD)
 
 def on_up_button_pressed():
     lift.spin(direction=REVERSE)
+    print("lift up")
 
 def on_down_button_pressed():
     lift.spin(direction=FORWARD)
+    print("lift down")
     
 
 
