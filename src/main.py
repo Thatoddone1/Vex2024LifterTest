@@ -32,7 +32,6 @@ claw = Motor(Ports.PORT12)
 
 claw.set_stopping(BrakeType.HOLD)
 
-
 def on_close_button_pressed():
     claw.spin(direction=REVERSE)
 
