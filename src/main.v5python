@@ -11,6 +11,7 @@ lift = Motor(Ports.PORT5)
 
 lift.set_stopping(BrakeType.HOLD)
 
+#Runs when up button is pressed
 def on_up_button_pressed():
     lift.spin(direction=REVERSE)
 
