@@ -5,21 +5,26 @@ from vex import *
 brain=Brain()
 controller=Controller(PRIMARY)
 
-####### LIFT STUFF ↓ #######    
+####### lift STUFF ↓ #######    
 
-lift = Motor(Ports.PORT5)
+lift1 = Motor(Ports.PORT5, GearSetting.RATIO_36_1)
+lift2 = Motor(Ports.PORT8, GearSetting.RATIO_36_1)
 
-lift.set_stopping(BrakeType.HOLD)
+lift1.set_stopping(BrakeType.HOLD)
+lift2.set_stopping(BrakeType.HOLD)
 
-#Runs when up button is pressed
+
 def on_up_button_pressed():
-    lift.spin(direction=REVERSE)
+    lift1.spin(direction=REVERSE)
+    lift2.spin(direction=FORWARD)
 
 def on_down_button_pressed():
-    lift.spin(direction=FORWARD)
+    lift1.spin(direction=FORWARD)
+    lift2.spin(direction=REVERSE)
     
 def on_lift_button_released():
-    lift.stop()
+    lift1.stop()
+    lift2.stop()
 
 # controller event handlers
 controller.buttonR1.pressed(on_up_button_pressed)
@@ -32,6 +37,7 @@ controller.buttonR2.released(on_lift_button_released)
 claw = Motor(Ports.PORT12)
 
 claw.set_stopping(BrakeType.HOLD)
+claw.set_velocity(90, PERCENT)
 
 def on_close_button_pressed():
     claw.spin(direction=REVERSE)
