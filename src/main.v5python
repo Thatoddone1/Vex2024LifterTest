@@ -37,7 +37,7 @@ controller.buttonR2.released(on_lift_button_released)
 claw = Motor(Ports.PORT12)
 
 claw.set_stopping(BrakeType.HOLD)
-claw.set_velocity(90, PERCENT)
+claw.set_velocity(20, PERCENT)
 
 def on_close_button_pressed():
     claw.spin(direction=REVERSE)
