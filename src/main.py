@@ -82,13 +82,13 @@ def rc_auto_loop_function_controller():
             # left = axis3 + axis1
             # right = axis3 - axis1
             if controller.axis3.position() > 0:
-                drivetrain_left_side_speed = (controller.axis3.position()**2)/100
+                drivetrain_left_side_speed = ((controller.axis3.position()**2) - 15)/150
             else:
-                drivetrain_left_side_speed = -(controller.axis3.position()**2)/100
+                drivetrain_left_side_speed = -((controller.axis3.position()**2) - 15)/150
             if controller.axis2.position() > 0:
-                drivetrain_right_side_speed = (controller.axis2.position()**2)/100
+                drivetrain_right_side_speed = ((controller.axis2.position()**2) - 15)/150
             else:
-                drivetrain_right_side_speed = -(controller.axis2.position()**2)/100
+                drivetrain_right_side_speed = -((controller.axis2.position()**2) - 15)/150
             
             # check if the value is inside of the deadband range
             if drivetrain_left_side_speed < 5 and drivetrain_left_side_speed > -5:
