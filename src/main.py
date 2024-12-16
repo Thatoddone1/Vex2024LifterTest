@@ -1,4 +1,4 @@
-    from vex import *
+from vex import *
 
 #CONFIG
 
@@ -81,14 +81,14 @@ def rc_auto_loop_function_controller():
             # calculate the drivetrain motor velocities from the controller joystick axies
             # left = axis3 + axis1
             # right = axis3 - axis1
-            if controller_1.axis3.position() > 0:
-                drivetrain_left_side_speed = (controller_1.axis3.position()**2)/100
+            if controller.axis3.position() > 0:
+                drivetrain_left_side_speed = (controller.axis3.position()**2)/100
             else:
-                drivetrain_left_side_speed = -(controller_1.axis3.position()**2)/100
-            if controller_1.axis2.position() > 0:
-                drivetrain_right_side_speed = (controller_1.axis2.position()**2)/100
+                drivetrain_left_side_speed = -(controller.axis3.position()**2)/100
+            if controller.axis2.position() > 0:
+                drivetrain_right_side_speed = (controller.axis2.position()**2)/100
             else:
-                drivetrain_right_side_speed = -(controller_1.axis2.position()**2)/100
+                drivetrain_right_side_speed = -(controller.axis2.position()**2)/100
             
             # check if the value is inside of the deadband range
             if drivetrain_left_side_speed < 5 and drivetrain_left_side_speed > -5:
